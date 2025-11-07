@@ -4,15 +4,16 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        final int MAX_CAPACITY = 3;
+        final int MAX_CAPACITY = 3; //Принцип Magic.
         Scanner scanner = new Scanner(System.in);
 
 
         ArrayList<Product> warehouse = new ArrayList<Product>();
-        warehouse.add(new Product("Хлеб", 50));
-        warehouse.add(new Product("Яблоки", 200));
-        warehouse.add(new Product("Молоко", 80));
-        warehouse.add(new Product("Кефир", 50));
+        //Реализуем принцип Liskov. Класс EdibleProduct выполняет роль Product
+        warehouse.add(new EdibleProduct("Хлеб", 50, true));
+        warehouse.add(new EdibleProduct("Яблоки", 200, true));
+        warehouse.add(new EdibleProduct("Молоко", 80, true));
+        warehouse.add(new EdibleProduct("Кефир", 50, true));
 
         printContent(warehouse);
         ArrayList<Product> basket = new ArrayList<Product>();
@@ -24,7 +25,7 @@ public class Main {
             if ("end".equals(input)) {
                 break;
             }
-            if (basket.size()==MAX_CAPACITY) {
+            if (basket.size() == MAX_CAPACITY) {
                 System.out.println("Достигнут максимальный объем корзины!");
                 printContent(basket);
                 break;
@@ -37,6 +38,7 @@ public class Main {
         }
     }
 
+    //Принцип DRY. Релизуем метод вывода содержимого корзины и склада
     public static void printContent(ArrayList<Product> arl) {
 
         for (int i = 0; i < arl.size(); i++) {
