@@ -1,6 +1,4 @@
-import java.time.LocalDate;
-import java.util.Date;
-
+//Single-responsibility principle - класс Product отвечает только за хранение данных о продукте
 public class Product {
     protected String nameProduct;
     protected int priceProduct;
@@ -9,7 +7,6 @@ public class Product {
     public Product(String nameProduct, int priceProduct) {
         this.nameProduct = nameProduct;
         this.priceProduct = priceProduct;
-
     }
 
     public String getNameProduct() {
@@ -19,8 +16,6 @@ public class Product {
     public int getPriceProduct() {
         return priceProduct;
     }
-
-
     public void setNameProduct(String nameProduct) {
         this.nameProduct = nameProduct;
     }
@@ -28,6 +23,4 @@ public class Product {
     public void setPriceProduct(int priceProduct) {
         this.priceProduct = priceProduct;
     }
-
-
 }
